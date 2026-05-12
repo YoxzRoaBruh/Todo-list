@@ -1,40 +1,34 @@
 /* =========================================
    PALETAS DE COLORES DINÁMICAS (TEMAS)
 ========================================= */
-
-/* 🌊 TEMA OCÉANO (Azules Profundos) */
+/*NO TOCAR NI COMBINAR CON EL STYLES, SINO ME PONGO ANGRY */
+/*  TEMA OCÉANO  */
 body.tema-oceano {
-    --app-bg: #1B4F72;       /* Contenedor principal oscuro */
-    --task-card-bg: #85C1E9; /* Tarjetas celeste agua */
-    --btn-bg: #2874A6;       /* Botones */
+    --app-bg: #1B4F72;       
+    --task-card-bg: #85C1E9; 
+    --btn-bg: #2874A6;       
     --btn-hover: #154360;    
 }
 
-/* 🌧️ TEMA LLUVIA (Grises Tormenta) */
+/*  TEMA LLUVIA  */
 body.tema-lluvia {
-    --app-bg: #424949;       /* Contenedor gris asfalto */
-    --task-card-bg: #A6ACAF; /* Tarjetas gris nublado */
-    --btn-bg: #717D7E;       /* Botones */
+    --app-bg: #424949;       
+    --task-card-bg: #A6ACAF; 
+    --btn-bg: #717D7E;       
     --btn-hover: #515A5A;
 }
 
-/* ❄️ TEMA NIEVE (Celestes Hielo) */
+/*  TEMA NIEVE  */
 body.tema-nieve {
-    --app-bg: #5DADE2;       /* Contenedor azul invierno vibrante */
-    --task-card-bg: #D6EAF8; /* Tarjetas hielo casi blancas */
-    --btn-bg: #3498DB;       /* Botones */
+    --app-bg: #5DADE2;       
+    --task-card-bg: #D6EAF8; 
+    --btn-bg: #3498DB;       
     --btn-hover: #2874A6;
 }
-
-/* --- ADAPTACIÓN DE BOTONES --- 
-   Reemplaza el color lila fijo que tenían tus botones por la variable dinámica.
-   Si no hay tema seleccionado, usa tu lila original (#A9B1E6) como respaldo. 
-*/
 #add-btn, .toggle-filter, .toggle-view, .btn-folder-action.btn-open {
     background-color: var(--btn-bg, #A9B1E6) !important;
     border-color: rgba(255, 255, 255, 0.4) !important;
 }
-
 #add-btn:hover, .toggle-filter:hover, .toggle-view:hover {
     background-color: var(--btn-hover, #9299DF) !important;
 }
@@ -45,16 +39,16 @@ body.tema-nieve {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    z-index: -2; /* Mantiene el fondo por detrás del glass-container */
-    display: none; /* Ocultos por defecto */
+    z-index: -2; 
+    display: none; 
     overflow: hidden;
 }
 
 .dynamic-bg.active-bg {
-    display: block; /* Solo se muestra el activo */
+    display: block; 
 }
 
-/* --- 1. OCÉANO --- */
+/* --- 1. Burbujas --- */
 #tema-oceano {
     background: linear-gradient(135deg, #3a3f9a 0%, #5f64d3 100%);
     
@@ -97,32 +91,26 @@ body.tema-nieve {
     0%, 100% { backdrop-filter: blur(0); }
     50% { backdrop-filter: blur(2px); }
 }
-
-/* Gotas de lluvia (Corregidas) */
 .particula-lluvia {
-    background: rgba(255, 255, 255, 0.6); /* Un gris más claro para que resalte sobre el fondo oscuro */
+    background: rgba(255, 255, 255, 0.6); 
     position: absolute; 
-    width: 1.5px; /* Un pelito más gruesas */
-    height: 15px; /* Un poco más largas para mayor realismo */
-    top: -50px;
-    
-    /* Especificamos la animación paso a paso para no pelear con el JavaScript */
+    width: 1.5px; 
+    height: 15px; 
+    top: -50px;   
     animation-name: caer-lluvia-recta;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
-
-/* NUEVO: Keyframes exclusivos y a prueba de fallos para la lluvia */
 @keyframes caer-lluvia-recta {
     0% { 
         top: -20px; 
         opacity: 0; 
     }
     10% { 
-        opacity: 1; /* Aparecen suavemente */
+        opacity: 1; 
     }
     100% { 
-        top: 105vh; /* Caen hasta el fondo de la pantalla */
+        top: 105vh; 
         opacity: 1; 
     }
 }
@@ -131,7 +119,6 @@ body.tema-nieve {
     background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
 }
 
-/* Copos de nieve */
 .particula-nieve {
     background: white; 
     border-radius: 50%;
@@ -139,22 +126,23 @@ body.tema-nieve {
     width: 6px; 
     height: 6px; 
     top: -50px;
-    /* Conectamos la nueva animación aquí */
     animation: caer-nieve-diagonal linear infinite;
     box-shadow: 0 0 5px rgba(255,255,255,0.8);
 }
 
-/* NUEVO: Animación exclusiva para la nieve en diagonal */
 @keyframes caer-nieve-diagonal {
     0% { 
         top: -10px; 
-        transform: translateX(0); /* Empieza en su posición original */
-    }
+        transform: translateX(0); 
+        }
     100% { 
         top: 105vh; 
-        transform: translateX(-250px); /* El viento la empuja 250px a la izquierda mientras cae */
+        transform: translateX(-250px); 
     }
 }
+
+/* suelo del estilo de nieve :p */
+
 .suelo-nieve {
     position: absolute;
     bottom: -10vh; 
@@ -166,24 +154,23 @@ body.tema-nieve {
     box-shadow: inset 0 20px 30px rgba(164, 195, 210, 0.3);
     z-index: 10; 
 }
+/* muñeco de nieve*/
 .muñeco-contenedor {
     position: absolute;
-    bottom: 7vh; /* Lo situamos justo sobre el suelo curvo */
+    bottom: 7vh; 
     left: 10%;
-    transform: translateX(-50%); /* Centrado horizontal */
+    transform: translateX(-50%); 
     width: 200px;
     height: 300px;
-    z-index: 10; /* Por encima de todo */
+    z-index: 10; 
 }
 
-/* Clase base para las bolas de nieve con sombra para profundidad */
 .cuerpo {
     position: absolute;
     background-color: #ffffff;
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);
-    /* Sombra interior (inset) celeste pálida para efecto 3D de esfera */
     box-shadow: inset -10px -10px 20px rgba(116, 150, 181, 0.2), 
                 0 5px 10px rgba(0,0,0,0.1);
 }
@@ -198,17 +185,16 @@ body.tema-nieve {
 .medio {
     width: 110px;
     height: 110px;
-    bottom: 100px; /* Superposición sutil */
+    bottom: 100px; 
     z-index: 2;
 }
 
-/* Botones de carbón en el cuerpo medio usando pseudo-elementos */
 .medio::after, .medio::before {
     content: '';
     position: absolute;
     width: 12px;
     height: 12px;
-    background-color: #2c3e50; /* Carbón oscuro */
+    background-color: #2c3e50; 
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);
@@ -216,17 +202,14 @@ body.tema-nieve {
 
 .medio::before { top: 30px; }
 .medio::after { top: 60px; }
-
-
 .cabeza {
     width: 80px;
     height: 80px;
-    bottom: 180px; /* Superposición sutil */
+    bottom: 180px; 
     z-index: 3;
-    background-color: #fff; /* Asegura blancura frente a superposición */
+    background-color: #fff; 
 }
 
-/* --- CARA --- */
 .ojo {
     position: absolute;
     width: 10px;
@@ -238,41 +221,37 @@ body.tema-nieve {
 
 .ojo-izq { left: 20px; }
 .ojo-der { right: 20px; }
-
 .nariz {
     position: absolute;
     width: 0;
     height: 0;
-    /* Triángulo naranja usando borders */
     border-left: 5px solid transparent;
     border-right: 30px solid transparent;
-    border-bottom: 5px solid #e67e22; /* Naranja zanahoria */
+    border-bottom: 5px solid #e67e22; 
     top: 40px;
     left: 63%;
-    transform: translateX(-50%) rotate(10deg); /* Ligeramente torcida */
+    transform: translateX(-50%) rotate(10deg);  
 }
 
-/* --- ACCESORIOS --- */
 .bufanda {
     position: absolute;
     width: 90px;
     height: 20px;
-    background-color: #e74c3c; /* Rojo brillante */
+    background-color: #e74c3c; 
     border-radius: 10px;
-    bottom: 185px; /* Entre cabeza y medio */
+    bottom: 185px; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 4;
     box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 }
 
-/* Detalle colgante de la bufanda */
 .bufanda::after {
     content: '';
     position: absolute;
     width: 20px;
     height: 40px;
-    background-color: #e74c3c; /* Rojo más oscuro */
+    background-color: #e74c3c; 
     border-radius: 5px;
     right: 15px;
     top: 10px;
@@ -282,31 +261,65 @@ body.tema-nieve {
     position: absolute;
     width: 70px;
     height: 60px;
-    bottom: 240px; /* Sobre la cabeza */
+    bottom: 240px; 
     left: 48%;
-    transform: translateX(-50%) rotate(-5deg); /* Ligeramente ladeado */
+    transform: translateX(-50%) rotate(-5deg); 
     z-index: 5;
 }
 
-/* Copa del sombrero (rectángulo negro) */
 .sombrero::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #34495e; /* Azul grisáceo muy oscuro */
+    background-color: #34495e; 
     border-radius: 5px 5px 0 0;
     bottom: 5px;
 }
 
-/* Ala del sombrero (línea horizontal) */
 .sombrero::before {
     content: '';
     position: absolute;
     width: 120%;
     height: 10px;
-    background-color: #2c3e50; /* Base más oscura */
+    background-color: #2c3e50; 
     border-radius: 5px;
     bottom: 0;
     left: -10%;
+}
+.nariz {
+    cursor: pointer !important;
+    transition: transform 0.3s ease !important;
+    pointer-events: auto !important; 
+    z-index: 100 !important; 
+}
+.nariz:hover {
+    transform: translateX(-50%) rotate(15deg) scale(1.2) !important;
+    filter: brightness(1.2);
+}
+.Lluvia-nieve, .particula-nieve, .shuvia, .suelo-nieve, .dynamic-bg {
+    pointer-events: none !important; 
+}
+.glass-container, .modal, #theme-btn {
+    pointer-events: auto !important;
+}
+.sombrero {
+    cursor: pointer !important; 
+    pointer-events: auto !important; 
+    z-index: 100 !important; 
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease !important; 
+}
+
+.sombrero-volando {
+    transform: translate(150px, -200px) rotate(360deg) !important;
+    opacity: 0; 
+}
+@keyframes vuelo {
+    0%   { transform: translate(-50%, 0px) rotate(-5deg); opacity: 1; }
+    20%  { transform: translate(100px, -150px) rotate(180deg); opacity: 1; }
+    100% { transform: translate(1000px, -400px) rotate(1440deg); opacity: 0; }
+}
+
+.sombrero-acrobata {
+    animation: vuelo 3.5s ease-in-out forwards !important;
 }
